@@ -1,47 +1,80 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8">
-<title>Attendance</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>StudentHub - Attendance</title>
+
+    <link rel="stylesheet" href="CSS/attendance.css">
 </head>
 
 <body>
 
 <header>
-<h1>Attendance</h1>
+    <h1>StudentHub</h1>
 </header>
 
-<hr>
+<nav>
+    <a href="index.html">Home</a>
+    <a href="profile.html">Profile</a>
+    <a href="attendance.html" class="active">Attendance</a>
+    <a href="timetable.html">Timetable</a>
+    <a href="assignment.html">Assignments</a>
+    <a href="notice.html">Notice</a>
+    <a href="contact.html">Contact</a>
+    <a href="login.html" class="logout">Logout</a>
+</nav>
 
-<table border="1">
+<main>
 
-<tr>
-<th>Subject</th>
-<th>Attendance</th>
-</tr>
+    <table>
 
-<tr>
-<td>CN</td>
-<td>95%</td>
-</tr>
+        <thead>
+            <tr>
+                <th>Subject</th>
+                <th>Attendance</th>
+            </tr>
+        </thead>
 
-<tr>
-<td>OOPJ</td>
-<td>90%</td>
-</tr>
+        <tbody>
 
-<tr>
-<td>DBMS</td>
-<td>88%</td>
-</tr>
+            <tr>
+                <td>CN</td>
+                <td>95%</td>
+            </tr>
 
-</table>
+            <tr>
+                <td>OOPJ</td>
+                <td>90%</td>
+            </tr>
 
-<hr>
+            <tr>
+                <td>DBMS</td>
+                <td>88%</td>
+            </tr>
+
+        </tbody>
+
+    </table>
+
+</main>
 
 <footer>
-StudentHub
+
+    <strong>StudentHub</strong>
+
+    <p>
+        Academic Portal for Students
+    </p>
+
+    <p>
+        © 2026 StudentHub. All Rights Reserved.
+    </p>
+
 </footer>
 
 </body>
+
 </html>
