@@ -1,0 +1,122 @@
+[
+    {
+        "id": 1,
+        "name": "Student 1",
+        "email": "student1@studenthub.com",
+        "course": "B.Tech IT",
+        "year": "2nd Year",
+        "attendance": "79%"
+    },
+    {
+        "id": 2,
+        "name": "Student 2",
+        "email": "student2@studenthub.com",
+        "course": "B.Tech CSE",
+        "year": "2nd Year",
+        "attendance": "80%"
+    },
+    {
+        "id": 3,
+        "name": "Student 3",
+        "email": "student3@studenthub.com",
+        "course": "B.Tech IT",
+        "year": "2nd Year",
+        "attendance": "81%"
+    },
+    {
+        "id": 4,
+        "name": "Student 4",
+        "email": "student4@studenthub.com",
+        "course": "B.Tech CSE",
+        "year": "2nd Year",
+        "attendance": "82%"
+    },
+    {
+        "id": 5,
+        "name": "Student 5",
+        "email": "student5@studenthub.com",
+        "course": "B.Tech IT",
+        "year": "2nd Year",
+        "attendance": "83%"
+    },
+    {
+        "id": 6,
+        "name": "Student 6",
+        "email": "student6@studenthub.com",
+        "course": "B.Tech CSE",
+        "year": "2nd Year",
+        "attendance": "84%"
+    },
+    {
+        "id": 7,
+        "name": "Student 7",
+        "email": "student7@studenthub.com",
+        "course": "B.Tech IT",
+        "year": "2nd Year",
+        "attendance": "85%"
+    },
+    {
+        "id": 8,
+        "name": "Student 8",
+        "email": "student8@studenthub.com",
+        "course": "B.Tech CSE",
+        "year": "2nd Year",
+        "attendance": "86%"
+    },
+    {
+        "id": 9,
+        "name": "Student 9",
+        "email": "student9@studenthub.com",
+        "course": "B.Tech IT",
+        "year": "2nd Year",
+        "attendance": "87%"
+    },
+    {
+        "id": 10,
+        "name": "Student 10",
+        "email": "student10@studenthub.com",
+        "course": "B.Tech CSE",
+        "year": "2nd Year",
+        "attendance": "88%"
+    },
+    {
+        "id": 11,
+        "name": "Student 11",
+        "email": "student11@studenthub.com",
+        "course": "B.Tech IT",
+        "year": "2nd Year",
+        "attendance": "89%"
+    },
+    {
+        "id": 12,
+        "name": "Student 12",
+        "email": "student12@studenthub.com",
+        "course": "B.Tech CSE",
+        "year": "2nd Year",
+        "attendance": "90%"
+    },
+    {
+        "id": 13,
+        "name": "Student 13",
+        "email": "student13@studenthub.com",
+        "course": "B.Tech IT",
+        "year": "2nd Year",
+        "attendance": "91%"
+    },
+    {
+        "id": 14,
+        "name": "Student 14",
+        "email": "student14@studenthub.com",
+        "course": "B.Tech CSE",
+        "year": "2nd Year",
+        "attendance": "92%"
+    },
+    {
+        "id": 15,
+        "name": "Student 15",
+        "email": "student15@studenthub.com",
+        "course": "B.Tech IT",
+        "year": "2nd Year",
+        "attendance": "93%"
+    }
+]

@@ -1,0 +1,78 @@
+[
+    {
+        "id": 1,
+        "question": "How do I register?",
+        "answer": "Open the Register page and fill in all required details."
+    },
+    {
+        "id": 2,
+        "question": "How do I login?",
+        "answer": "Use the email and password registered for your StudentHub account."
+    },
+    {
+        "id": 3,
+        "question": "Where can I see my attendance?",
+        "answer": "Open the Attendance page from the navigation menu."
+    },
+    {
+        "id": 4,
+        "question": "Where is the timetable?",
+        "answer": "Open the Timetable page to view the weekly schedule."
+    },
+    {
+        "id": 5,
+        "question": "Where can I see assignments?",
+        "answer": "Open the Assignments page from the dashboard navigation."
+    },
+    {
+        "id": 6,
+        "question": "How can I read notices?",
+        "answer": "Open the Notice page to see current college announcements."
+    },
+    {
+        "id": 7,
+        "question": "How can I view events?",
+        "answer": "Open the Events page to view event records loaded from JSON."
+    },
+    {
+        "id": 8,
+        "question": "Can I search events?",
+        "answer": "Yes. Use the search box on the Events page."
+    },
+    {
+        "id": 9,
+        "question": "Can I filter events?",
+        "answer": "Yes. Select a category from the filter dropdown."
+    },
+    {
+        "id": 10,
+        "question": "What happens if registration data is invalid?",
+        "answer": "The registration form shows an error and the PHP processor validates it again."
+    },
+    {
+        "id": 11,
+        "question": "Where is registration data stored?",
+        "answer": "For Practical 7, submitted registration records are stored in a JSON file on the server."
+    },
+    {
+        "id": 12,
+        "question": "What if an email already exists?",
+        "answer": "The PHP processor checks the stored records and reports a duplicate email."
+    },
+    {
+        "id": 13,
+        "question": "Is the website responsive?",
+        "answer": "Yes. The CSS includes responsive rules for smaller screens."
+    },
+    {
+        "id": 14,
+        "question": "Can I change the theme?",
+        "answer": "Yes. Use the theme button on the Home page."
+    },
+    {
+        "id": 15,
+        "question": "How can I contact StudentHub?",
+        "answer": "Use the Contact page and submit the contact form."
+    }
+]
+

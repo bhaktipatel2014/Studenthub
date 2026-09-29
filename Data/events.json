@@ -1,0 +1,122 @@
+[
+    {
+        "id": 1,
+        "title": "Hackathon 2026",
+        "date": "12 Sep 2026",
+        "description": "24-hour coding competition for student teams.",
+        "image": "images/hackthon.jpg",
+        "category": "Technical"
+    },
+    {
+        "id": 2,
+        "title": "AI Workshop",
+        "date": "18 Sep 2026",
+        "description": "Learn the basics of Artificial Intelligence and Machine Learning.",
+        "image": "images/2nd.jpg",
+        "category": "Academic"
+    },
+    {
+        "id": 3,
+        "title": "Career Fair",
+        "date": "25 Sep 2026",
+        "description": "Meet recruiters and explore internship opportunities.",
+        "image": "images/3rd.jpeg",
+        "category": "Campus"
+    },
+    {
+        "id": 4,
+        "title": "Sports Week",
+        "date": "02 Oct 2026",
+        "description": "Inter-class sports activities and competitions.",
+        "image": "images/4th.jpg",
+        "category": "Technical"
+    },
+    {
+        "id": 5,
+        "title": "Cultural Program",
+        "date": "10 Oct 2026",
+        "description": "A student cultural celebration with performances.",
+        "image": "images/1st.png",
+        "category": "Academic"
+    },
+    {
+        "id": 6,
+        "title": "Cloud Computing Seminar",
+        "date": "15 Oct 2026",
+        "description": "Introduction to cloud computing and modern services.",
+        "image": "images/2nd.jpg",
+        "category": "Campus"
+    },
+    {
+        "id": 7,
+        "title": "Web Development Workshop",
+        "date": "20 Oct 2026",
+        "description": "Hands-on HTML, CSS and JavaScript workshop.",
+        "image": "images/3rd.jpeg",
+        "category": "Technical"
+    },
+    {
+        "id": 8,
+        "title": "Coding Contest",
+        "date": "28 Oct 2026",
+        "description": "Solve programming problems and improve coding skills.",
+        "image": "images/4th.jpg",
+        "category": "Academic"
+    },
+    {
+        "id": 9,
+        "title": "Project Exhibition",
+        "date": "05 Nov 2026",
+        "description": "Showcase innovative student projects.",
+        "image": "images/1st.png",
+        "category": "Campus"
+    },
+    {
+        "id": 10,
+        "title": "Cyber Security Awareness",
+        "date": "12 Nov 2026",
+        "description": "Learn basic online safety and security practices.",
+        "image": "images/2nd.jpg",
+        "category": "Technical"
+    },
+    {
+        "id": 11,
+        "title": "Data Science Talk",
+        "date": "18 Nov 2026",
+        "description": "Explore data analysis and career opportunities.",
+        "image": "images/3rd.jpeg",
+        "category": "Academic"
+    },
+    {
+        "id": 12,
+        "title": "Placement Preparation",
+        "date": "25 Nov 2026",
+        "description": "Resume, aptitude and interview preparation session.",
+        "image": "images/4th.jpg",
+        "category": "Campus"
+    },
+    {
+        "id": 13,
+        "title": "Git and GitHub Session",
+        "date": "02 Dec 2026",
+        "description": "Learn version control and repository management.",
+        "image": "images/1st.png",
+        "category": "Technical"
+    },
+    {
+        "id": 14,
+        "title": "Tech Quiz",
+        "date": "10 Dec 2026",
+        "description": "Test your knowledge of technology and computing.",
+        "image": "images/2nd.jpg",
+        "category": "Academic"
+    },
+    {
+        "id": 15,
+        "title": "Annual Student Meet",
+        "date": "18 Dec 2026",
+        "description": "Student interaction and academic year activities.",
+        "image": "images/3rd.jpeg",
+        "category": "Campus"
+    }
+]

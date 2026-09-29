@@ -1,0 +1,18 @@
+[
+  {"id":1,"name":"Patel Bhakti","email":"d26dcs149@charusat.edu.in","course":"CE","year":3,"department":"Computer Science"},
+  {"id":2,"name":"Aarav Shah","email":"aarav.shah@charusat.edu.in","course":"IT","year":2,"department":"Information Technology"},
+  {"id":3,"name":"Diya Mehta","email":"diya.mehta@charusat.edu.in","course":"CE","year":1,"department":"Computer Science"},
+  {"id":4,"name":"Rahul Joshi","email":"rahul.joshi@charusat.edu.in","course":"CSE","year":4,"department":"Computer Science"},
+  {"id":5,"name":"Sneha Patel","email":"sneha.patel@charusat.edu.in","course":"IT","year":3,"department":"Information Technology"},
+  {"id":6,"name":"Karan Desai","email":"karan.desai@charusat.edu.in","course":"CE","year":2,"department":"Computer Science"},
+  {"id":7,"name":"Isha Trivedi","email":"isha.trivedi@charusat.edu.in","course":"IT","year":1,"department":"Information Technology"},
+  {"id":8,"name":"Manav Raval","email":"manav.raval@charusat.edu.in","course":"CSE","year":3,"department":"Computer Science"},
+  {"id":9,"name":"Pooja Nair","email":"pooja.nair@charusat.edu.in","course":"CE","year":4,"department":"Computer Science"},
+  {"id":10,"name":"Yash Chauhan","email":"yash.chauhan@charusat.edu.in","course":"IT","year":2,"department":"Information Technology"},
+  {"id":11,"name":"Riya Gupta","email":"riya.gupta@charusat.edu.in","course":"CSE","year":1,"department":"Computer Science"},
+  {"id":12,"name":"Harsh Patel","email":"harsh.patel@charusat.edu.in","course":"CE","year":3,"department":"Computer Science"},
+  {"id":13,"name":"Nidhi Shah","email":"nidhi.shah@charusat.edu.in","course":"IT","year":4,"department":"Information Technology"},
+  {"id":14,"name":"Vivek Amin","email":"vivek.amin@charusat.edu.in","course":"CSE","year":2,"department":"Computer Science"},
+  {"id":15,"name":"Ananya Rao","email":"ananya.rao@charusat.edu.in","course":"CE","year":1,"department":"Computer Science"},
+  {"id":16,"name":"Meet Solanki","email":"meet.solanki@charusat.edu.in","course":"IT","year":3,"department":"Information Technology"}
+]

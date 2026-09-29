@@ -2,38 +2,22 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Login</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StudentHub - Login</title>
     <link rel="stylesheet" href="CSS/login.css">
 </head>
 <body>
-
-<header>
-    <h1>Student Login</h1>
-</header>
-
-<nav>
-    <a href="index.html">Home</a>
-</nav>
-
-<hr>
-
+<header><h1>Student Login</h1></header>
+<nav><a href="index.html">Home</a> | <a href="register.html">Register</a></nav>
 <main>
     <form>
-        <label>Email:</label><br>
-        <input type="email"><br><br>
-
-        <label>Password:</label><br>
-        <input type="password"><br><br>
-
+        <label for="loginEmail">Email:</label><br>
+        <input type="email" id="loginEmail" name="email" required><br><br>
+        <label for="loginPassword">Password:</label><br>
+        <input type="password" id="loginPassword" name="password" required><br><br>
         <input type="submit" value="Login">
     </form>
 </main>
-
-<hr>
-
-<footer>
-    <p>StudentHub Portal</p>
-</footer>
-
+<footer><p>StudentHub Portal</p></footer>
 </body>
 </html>

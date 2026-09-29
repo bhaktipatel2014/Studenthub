@@ -2,47 +2,50 @@
 <html lang="en">
 
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Feedback</title>
-<link rel="stylesheet" href="CSS/style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StudentHub - Feedback</title>
+    <link rel="stylesheet" href="CSS/style.css">
 </head>
 
 <body>
-
-<header>
-
-<h1>Feedback</h1>
-
-</header>
-
-<main>
-
-<form>
-
-<label>Name</label>
-
-<input type="text">
-
-<br><br>
-
-<label>Feedback</label>
-
-<textarea></textarea>
-
-<br><br>
-
-<button>Submit</button>
-
-</form>
-
-</main>
-
-<footer>
-
-<p>&copy; StudentHub</p>
-
-</footer>
-
+    <header>
+        <div class="logo"><img src="images/logo.png" alt="StudentHub Logo">
+            <h2>StudentHub</h2>
+        </div>
+        <nav aria-label="Main navigation">
+            <a href="index.html">Home</a>
+            <a href="dashboard.html">Dashboard</a>
+            <a href="profile.html">Profile</a>
+            <a href="attendance.html">Attendance</a>
+            <a href="timetable.html">Timetable</a>
+            <a href="assignment.html">Assignments</a>
+            <a href="notice.html">Notice</a>
+            <a href="events.html">Events</a>
+            <a href="contact.html">Contact</a>
+            <a href="login.html" class="login">Login</a>
+            <a href="register.html" class="register">Register</a>
+        </nav>
+    </header>
+    <main>
+        <section class="container">
+            <h2>Feedback</h2>
+            <form action="php/contact.php" method="post">
+                <label for="feedbackName">Name</label>
+                <input type="text" id="feedbackName" name="name" required>
+                <label for="feedbackEmail">Email</label>
+                <input type="email" id="feedbackEmail" name="email" required>
+                <label for="feedbackMessage">Feedback</label>
+                <textarea id="feedbackMessage" name="message" required></textarea>
+                <button type="submit">Submit</button>
+            </form>
+        </section>
+    </main>
+    <footer>
+        <h3>StudentHub</h3>
+        <p>Your Digital Campus Portal</p>
+        <p>&copy; 2026 StudentHub. All Rights Reserved.</p>
+    </footer>
 </body>
+
 </html>

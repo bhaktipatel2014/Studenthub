@@ -2,37 +2,69 @@
 <html lang="en">
 
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Events</title>
-<link rel="stylesheet" href="CSS/style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StudentHub - Events</title>
+    <link rel="stylesheet" href="CSS/style.css">
 </head>
 
 <body>
+    <header>
+        <div class="logo">
+            <img src="images/logo.png" alt="StudentHub Logo">
+            <h2>StudentHub</h2>
+        </div>
+        <nav aria-label="Main navigation">
+            <a href="index.html">Home</a>
+            <a href="dashboard.html">Dashboard</a>
+            <a href="profile.html">Profile</a>
+            <a href="attendance.html">Attendance</a>
+            <a href="timetable.html">Timetable</a>
+            <a href="assignment.html">Assignments</a>
+            <a href="notice.html">Notice</a>
+            <a href="events.html">Events</a>
+            <a href="contact.html">Contact</a>
+            <a href="login.html" class="login">Login</a>
+            <a href="register.html" class="register">Register</a>
+        </nav>
+    </header>
 
-<header>
+    <main>
+        <section class="container">
+            <div class="section-title">
+                <h2>College Events</h2>
+                <a href="index.html">← Home</a>
+            </div>
 
-<h1>College Events</h1>
+            <label for="eventSearch">Search Events</label>
+            <input type="search" id="eventSearch" placeholder="Search by event name">
 
-</header>
+            <label for="eventFilter">Filter by Category</label>
+            <select id="eventFilter">
+                <option value="all">All Categories</option>
+                <option value="Technical">Technical</option>
+                <option value="Academic">Academic</option>
+                <option value="Campus">Campus</option>
+            </select>
 
-<main>
+            <p id="eventStatus" aria-live="polite">Loading events...</p>
+            <div class="cards" id="eventList"></div>
 
-<article>
+            <div>
+                <button type="button" id="previousPage">Previous</button>
+                <span id="pageNumber">Page 1</span>
+                <button type="button" id="nextPage">Next</button>
+            </div>
+        </section>
+    </main>
 
-<h2>Upcoming Events</h2>
+    <footer>
+        <h3>StudentHub</h3>
+        <p>Your Digital Campus Portal</p>
+        <p>&copy; 2026 StudentHub. All Rights Reserved.</p>
+    </footer>
 
-<p>Technical Fest, Sports Week, Cultural Program.</p>
-
-</article>
-
-</main>
-
-<footer>
-
-<p>&copy; StudentHub</p>
-
-</footer>
-
+    <script src="JS/events.js"></script>
 </body>
+
 </html>
