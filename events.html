@@ -7,6 +7,7 @@
     <title>StudentHub - Events</title>
     <link rel="stylesheet" href="CSS/style.css">
     <link rel="stylesheet" href="CSS/theme.css">
+    <link rel="stylesheet" href="CSS/events.css">
 
 </head>
 
@@ -50,38 +51,42 @@
 </header>
 
 <main>
-        <section class="container">
+        <section class="container events-page">
             <div class="section-title">
                 <h1>College Events</h1>
                 <a href="index.html">← Home</a>
             </div>
+            <p class="events-intro">Explore campus activities and find your next event.</p>
 
-            <label for="eventSearch">Search Events</label>
-            <input type="search" id="eventSearch" placeholder="Search by event name">
+            <div class="event-controls" aria-label="Find events">
+                <div class="event-search-control">
+                    <label for="eventSearch">Search Events</label>
+                    <input type="search" id="eventSearch" placeholder="Search events, topics, or categories" autocomplete="off">
+                </div>
+                <div>
+                    <label for="eventFilter">Category</label>
+                    <select id="eventFilter">
+                        <option value="all">All Categories</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="eventSort">Sort by</label>
+                    <select id="eventSort">
+                        <option value="date-asc">Date: soonest first</option>
+                        <option value="date-desc">Date: latest first</option>
+                        <option value="title-asc">Name: A to Z</option>
+                        <option value="title-desc">Name: Z to A</option>
+                    </select>
+                </div>
+            </div>
 
-            <label for="eventFilter">Filter by Category</label>
-            <select id="eventFilter">
-                <option value="all">All Categories</option>
-                <option value="Technical">Technical</option>
-                <option value="Academic">Academic</option>
-                <option value="Campus">Campus</option>
-            </select>
-
-            <label for="eventSort">Sort Events</label>
-            <select id="eventSort">
-                <option value="date-asc">Date: soonest first</option>
-                <option value="date-desc">Date: latest first</option>
-                <option value="title-asc">Name: A to Z</option>
-                <option value="title-desc">Name: Z to A</option>
-            </select>
-
-            <p id="eventStatus" aria-live="polite">Loading events...</p>
+            <p id="eventStatus" class="event-status" aria-live="polite" role="status">Loading events...</p>
             <div class="cards" id="eventList"></div>
 
-            <div>
-                <button type="button" id="previousPage">Previous</button>
-                <span id="pageNumber">Page 1</span>
-                <button type="button" id="nextPage">Next</button>
+            <div class="pager event-pager" aria-label="Event pages">
+                <button type="button" id="previousPage" class="button-secondary">← Previous</button>
+                <span id="pageNumber" aria-live="polite">Page 1</span>
+                <button type="button" id="nextPage" class="button-secondary">Next →</button>
             </div>
         </section>
     </main>

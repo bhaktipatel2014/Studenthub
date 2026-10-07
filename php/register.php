@@ -13,25 +13,30 @@ if (($_SERVER['REQUEST_METHOD'] ?? '') !== 'POST') {
     exit;
 }
 
-$name = trim((string)($_POST['full_name'] ?? ''));
-$email = strtolower(trim((string)($_POST['email'] ?? '')));
-$mobile = trim((string)($_POST['mobile'] ?? ''));
-$password = (string)($_POST['password'] ?? '');
-$confirm = (string)($_POST['confirm_password'] ?? '');
-$course = trim((string)($_POST['course'] ?? ''));
-$year = trim((string)($_POST['year'] ?? ''));
-$gender = trim((string)($_POST['gender'] ?? ''));
+$readField = static function (string $key): string {
+    $value = $_POST[$key] ?? '';
+    return is_string($value) ? trim($value) : '';
+};
+$name = $readField('full_name');
+$email = strtolower($readField('email'));
+$mobile = $readField('mobile');
+// Do not trim, transform or persist passwords; validate and hash them as entered.
+$password = is_string($_POST['password'] ?? null) ? $_POST['password'] : '';
+$confirm = is_string($_POST['confirm_password'] ?? null) ? $_POST['confirm_password'] : '';
+$course = $readField('course');
+$year = $readField('year');
+$gender = $readField('gender');
 $errors = [];
 
 if (!preg_match("/^[A-Za-z][A-Za-z .'-]{1,49}$/", $name)) $errors[] = 'Enter a valid name.';
 if (!filter_var($email, FILTER_VALIDATE_EMAIL) || strlen($email) > 190) $errors[] = 'Enter a valid email address.';
 if (!preg_match('/^[0-9]{10}$/', $mobile)) $errors[] = 'Enter a 10-digit mobile number.';
-if (!preg_match('/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[^A-Za-z0-9]).{8,}$/', $password)) $errors[] = 'Use 8+ characters with upper- and lowercase letters, a number and a symbol.';
+if (strlen($password) > 128 || !preg_match('/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[^A-Za-z0-9]).{8,128}$/', $password)) $errors[] = 'Use 8–128 characters with upper- and lowercase letters, a number and a symbol.';
 if (!hash_equals($password, $confirm)) $errors[] = 'Passwords do not match.';
 if (!in_array($course, ['B.Tech IT', 'B.Tech CSE', 'B.Tech CE', 'BCA', 'MCA'], true)) $errors[] = 'Select a valid course.';
 if (!in_array($year, ['1st Year', '2nd Year', '3rd Year', '4th Year'], true)) $errors[] = 'Select a valid year.';
 if (!in_array($gender, ['Female', 'Male', 'Other', 'Prefer not to say'], true)) $errors[] = 'Select a gender option.';
-if (!isset($_POST['terms'])) $errors[] = 'Accept the terms to continue.';
+if (($readField('terms')) !== 'yes') $errors[] = 'Accept the terms to continue.';
 if ($errors) $redirect('error', implode(' ', $errors));
 
 $privateDir = __DIR__ . '/storage';

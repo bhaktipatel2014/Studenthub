@@ -1,75 +1,93 @@
 <?php
 declare(strict_types=1);
 
-$dataDir = dirname(__DIR__) . DIRECTORY_SEPARATOR . 'Data';
-$jsonFile = $dataDir . DIRECTORY_SEPARATOR . 'contacts.json';
-$csvFile = $dataDir . DIRECTORY_SEPARATOR . 'contacts.csv';
+$contactUrl = '../contact.html';
+$redirect = static function (string $status, string $message = '') use ($contactUrl): void {
+    $query = http_build_query(['status' => $status, 'msg' => $message]);
+    header('Location: ' . $contactUrl . '?' . $query, true, 303);
+    exit;
+};
 
-if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
-    header('Location: ../contact.html');
+if (($_SERVER['REQUEST_METHOD'] ?? '') !== 'POST') {
+    header('Location: ' . $contactUrl, true, 303);
     exit;
 }
 
-function clean(string $value): string
-{
-    return trim(htmlspecialchars(strip_tags($value), ENT_QUOTES, 'UTF-8'));
-}
+$readField = static function (string $key): string {
+    $value = $_POST[$key] ?? '';
+    return is_string($value) ? trim($value) : '';
+};
+$cleanText = static function (string $value): string {
+    $value = strip_tags($value);
+    return trim((string)preg_replace('/[\x00-\x08\x0B\x0C\x0E-\x1F\x7F]/u', '', $value));
+};
+$characterCount = static function (string $value): int {
+    $count = preg_match_all('/./us', $value, $matches);
+    return $count === false ? PHP_INT_MAX : $count;
+};
 
-$name = clean($_POST['name'] ?? '');
-$email = filter_var(trim($_POST['email'] ?? ''), FILTER_SANITIZE_EMAIL);
-$subject = clean($_POST['subject'] ?? '');
-$message = clean($_POST['message'] ?? '');
-
+$name = $cleanText($readField('name'));
+$email = filter_var($readField('email'), FILTER_SANITIZE_EMAIL);
+$subject = $cleanText($readField('subject'));
+$message = $cleanText($readField('message'));
 $errors = [];
-if (strlen($name) < 3) {
-    $errors[] = 'Name is required.';
-}
-if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-    $errors[] = 'Valid email is required.';
-}
-if (strlen($subject) < 3) {
-    $errors[] = 'Subject is required.';
-}
-if (strlen($message) < 10) {
-    $errors[] = 'Message must be at least 10 characters.';
-}
 
+if ($characterCount($name) < 2 || $characterCount($name) > 80 || !preg_match("/^[\p{L}\p{M}][\p{L}\p{M} .'-]*$/u", $name)) {
+    $errors[] = 'Enter a valid name (2–80 characters).';
+}
+if (!is_string($email) || strlen($email) > 190 || !filter_var($email, FILTER_VALIDATE_EMAIL)) {
+    $errors[] = 'Enter a valid email address.';
+}
+if ($characterCount($subject) < 3 || $characterCount($subject) > 120) {
+    $errors[] = 'Subject must be 3–120 characters.';
+}
+if ($characterCount($message) < 10 || $characterCount($message) > 3000) {
+    $errors[] = 'Message must be 10–3000 characters.';
+}
 if ($errors) {
-    header('Location: ../contact.html?status=error&msg=' . urlencode(implode(' ', $errors)));
-    exit;
+    $redirect('error', implode(' ', $errors));
 }
 
-if (!is_dir($dataDir)) {
-    mkdir($dataDir, 0775, true);
+$storageDir = __DIR__ . '/storage';
+if (!is_dir($storageDir) && !mkdir($storageDir, 0750, true) && !is_dir($storageDir)) {
+    error_log('StudentHub contact storage directory could not be created.');
+    $redirect('error', 'Your message could not be saved. Please try again later.');
 }
 
-$records = [];
-if (is_file($jsonFile)) {
-    $records = json_decode((string) file_get_contents($jsonFile), true) ?: [];
+$jsonFile = $storageDir . '/contact_messages.json';
+$handle = fopen($jsonFile, 'c+');
+if ($handle === false || !flock($handle, LOCK_EX)) {
+    if (is_resource($handle)) fclose($handle);
+    error_log('StudentHub contact storage could not be opened or locked.');
+    $redirect('error', 'Your message could not be saved. Please try again later.');
 }
 
-$records[] = [
-    'name' => $name,
-    'email' => $email,
-    'subject' => $subject,
-    'message' => $message,
-    'createdAt' => date('c'),
-];
+try {
+    rewind($handle);
+    $contents = stream_get_contents($handle);
+    if ($contents === false) throw new RuntimeException('Unable to read contact storage.');
+    $records = trim($contents) === '' ? [] : json_decode($contents, true, 512, JSON_THROW_ON_ERROR);
+    if (!is_array($records)) throw new RuntimeException('Contact storage must contain a JSON array.');
 
-file_put_contents($jsonFile, json_encode($records, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES), LOCK_EX);
-
-$needHeader = !is_file($csvFile);
-$handle = fopen($csvFile, 'a');
-if ($handle) {
-    if (flock($handle, LOCK_EX)) {
-        if ($needHeader) {
-            fputcsv($handle, ['name', 'email', 'subject', 'message', 'createdAt']);
-        }
-        fputcsv($handle, [$name, $email, $subject, $message, date('c')]);
-        flock($handle, LOCK_UN);
+    $records[] = [
+        'name' => $name,
+        'email' => $email,
+        'subject' => $subject,
+        'message' => $message,
+        'createdAt' => date(DATE_ATOM),
+    ];
+    $json = json_encode($records, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE | JSON_THROW_ON_ERROR);
+    rewind($handle);
+    if (!ftruncate($handle, 0) || fwrite($handle, $json) !== strlen($json) || !fflush($handle)) {
+        throw new RuntimeException('Unable to write contact storage.');
     }
+} catch (Throwable $exception) {
+    error_log('StudentHub contact storage error: ' . $exception->getMessage());
+    flock($handle, LOCK_UN);
     fclose($handle);
+    $redirect('error', 'Your message could not be saved. Please try again later.');
 }
 
-header('Location: ../contact.html?status=ok');
-exit;
+flock($handle, LOCK_UN);
+fclose($handle);
+$redirect('ok', 'Your message has been sent successfully.');

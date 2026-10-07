@@ -51,7 +51,7 @@ The shared navigation and footer connect the public pages. Academic pages includ
 - **4 — JavaScript:** `js/theme.js` remembers light/dark theme across pages and supports the mobile menu. `js/script.js` controls the home-page slider, dismissible announcement and accessible welcome dialog. The FAQ uses native expandable details.
 - **5 — Registration UX:** `register.html` and `js/register.js` validate name, email, mobile, password strength, confirmation, course, year, gender and terms with inline messages. Server validation repeats the checks.
 - **6 — JSON views:** `Data/events.json`, `Data/students.json` and `Data/faqs.json` contain sample records (at least 15 each). Events and FAQs load with Fetch, provide search/filter (events), sorting, pagination (events), and useful loading/error/empty states.
-- **7 — PHP storage:** `php/register.php` handles POST and validates/sanitizes registration data; JSON and CSV output lives in protected `php/storage/` and excludes passwords.
+- **7 — PHP forms and file storage:** `php/register.php` and `php/contact.php` handle POST requests, repeat validation on the server, and return success/error messages to their forms. Registration profile records (without passwords) are stored as JSON and CSV; contact messages are stored as JSON. All submitted records are kept in the Apache-protected `php/storage/` directory.
 - **8 — Database design:** `php/schema.sql` defines users, students, events and registrations, with primary/foreign keys and uniqueness constraints. `php/db.php` supplies a UTF-8 MySQLi connection from environment configuration.
 - **9 — Secure registration:** The PHP processor checks duplicate email, uses a prepared insert, stores the `password_hash()` result in `users.password_hash`, and assigns new accounts the `student` role.
 
@@ -66,7 +66,8 @@ Studenthub/
 ├── images/              Supplied campus imagery and wireframes
 └── php/
     ├── db.php           MySQLi connection helper
-    ├── register.php     Validated registration and storage
+    ├── register.php     Validated registration and JSON/CSV storage
+    ├── contact.php      Validated contact messages and JSON storage
     ├── schema.sql       MySQL schema
     └── storage/         Private Practical 7 JSON/CSV output
 ```

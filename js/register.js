@@ -36,7 +36,7 @@ document.addEventListener("DOMContentLoaded", function () {
     if (!/^[A-Za-z][A-Za-z .'-]{1,49}$/.test(name.value.trim())) { setError("nameError", "Enter a name using 2–50 letters, spaces or apostrophes."); valid = false; }
     if (!email.validity.valid) { setError("emailError", "Enter a valid email address."); valid = false; }
     if (!/^\d{10}$/.test(mobile.value.trim())) { setError("mobileError", "Enter a 10-digit mobile number."); valid = false; }
-    if (!/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[^A-Za-z0-9]).{8,}$/.test(password.value)) { setError("passwordError", "Use 8+ characters with upper- and lowercase letters, a number and a symbol."); valid = false; }
+    if (!/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[^A-Za-z0-9]).{8,128}$/.test(password.value)) { setError("passwordError", "Use 8–128 characters with upper- and lowercase letters, a number and a symbol."); valid = false; }
     if (!confirmation.value || confirmation.value !== password.value) { setError("confirmError", "Enter the same password again."); valid = false; }
     if (!form.elements.course.value) { setError("courseError", "Choose your course."); valid = false; }
     if (!form.elements.year.value) { setError("yearError", "Choose your current year."); valid = false; }

@@ -155,36 +155,37 @@
 
                     <h3>Send Us a Message</h3>
 
+                    <div id="contactNotice" class="contact-notice" role="status" aria-live="polite" hidden></div>
 
-                    <form action="php/contact.php" method="post">
+                    <form action="php/contact.php" method="post" id="contactForm">
 
 
                         <label for="name">
                             Your Name
                         </label>
 
-                        <input type="text" id="name" name="name" placeholder="Enter your name" required>
+                        <input type="text" id="name" name="name" placeholder="Enter your name" autocomplete="name" minlength="2" maxlength="80" required>
 
 
                         <label for="email">
                             Email Address
                         </label>
 
-                        <input type="email" id="email" name="email" placeholder="Enter your email" required>
+                        <input type="email" id="email" name="email" placeholder="Enter your email" autocomplete="email" maxlength="190" required>
 
 
                         <label for="subject">
                             Subject
                         </label>
 
-                        <input type="text" id="subject" name="subject" placeholder="Enter subject" required>
+                        <input type="text" id="subject" name="subject" placeholder="Enter subject" minlength="3" maxlength="120" required>
 
 
                         <label for="message">
                             Message
                         </label>
 
-                        <textarea id="message" name="message" rows="5" placeholder="Write your message..." required></textarea>
+                        <textarea id="message" name="message" rows="5" placeholder="Write your message..." minlength="10" maxlength="3000" required></textarea>
 
 
                         <button type="submit">
@@ -218,8 +219,8 @@
 
     </footer>
 <script src="js/theme.js"></script>
+<script src="js/contact.js"></script>
 
 </body>
 
 </html>
-

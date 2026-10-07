@@ -1,5 +1,17 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
 
+.contact-notice {
+    margin: 0 0 18px;
+    padding: 12px 14px;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    font-weight: 600;
+}
+
+.contact-notice[hidden] { display: none; }
+.contact-notice.is-success { color: var(--success); background: var(--surface-muted); border-color: var(--success); }
+.contact-notice.is-error { color: var(--danger); background: var(--surface-muted); border-color: var(--danger); }
+
 
 * {
     margin: 0;
