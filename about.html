@@ -4,40 +4,108 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>StudentHub - About</title>
+    <meta name="description" content="Learn how StudentHub brings academic tools, campus notices, and student support together.">
+    <title>About StudentHub</title>
     <link rel="stylesheet" href="CSS/style.css">
+    <link rel="stylesheet" href="CSS/theme.css">
 </head>
 
 <body>
-    <header>
-        <div class="logo"><img src="images/logo.png" alt="StudentHub Logo">
-            <h2>StudentHub</h2>
+    <header class="site-header">
+  <a class="logo" href="index.html" aria-label="StudentHub home">
+    <img src="images/logo-mark.png" alt="">
+    <span>StudentHub</span>
+  </a>
+  <nav id="navMenu" aria-label="Main navigation">
+      <a href="index.html">Home</a>
+      <a href="dashboard.html">Dashboard</a>
+    <details class="nav-group">
+      <summary>Academics</summary>
+      <div class="nav-dropdown">
+      <a href="profile.html">Profile</a>
+      <a href="attendance.html">Attendance</a>
+      <a href="timetable.html">Timetable</a>
+      <a href="assignment.html">Assignments</a>
+      </div>
+    </details>
+    <details class="nav-group">
+      <summary>Campus</summary>
+      <div class="nav-dropdown">
+      <a href="Notice.html">Notices</a>
+      <a href="events.html">Events</a>
+      </div>
+    </details>
+    <details class="nav-group is-active">
+      <summary>Support</summary>
+      <div class="nav-dropdown">
+      <a href="about.html" class="active" aria-current="page">About</a>
+      <a href="faq.html">FAQ</a>
+      <a href="contact.html">Contact</a>
+      <a href="feedback.html">Feedback</a>
+      </div>
+    </details>
+    <a href="login.html" class="login">Sign in</a>
+    <a href="register.html" class="register">Create account</a>
+  </nav>
+</header>
+
+<main>
+    <section class="about-hero" aria-labelledby="about-title">
+        <p class="about-eyebrow">YOUR CAMPUS, CONNECTED</p>
+        <h1 id="about-title">A simpler way to stay connected to campus</h1>
+        <p class="about-lede">StudentHub brings everyday student tools and campus information into one easy-to-use portal, so you can find what you need and keep your academic life organized.</p>
+        <div class="about-actions">
+            <a class="btn btn-dark" href="dashboard.html">Explore the dashboard</a>
+            <a class="btn btn-outline" href="Notice.html">Browse latest notices</a>
         </div>
-        <nav aria-label="Main navigation">
-            <a href="index.html">Home</a>
-            <a href="dashboard.html">Dashboard</a>
-            <a href="profile.html">Profile</a>
-            <a href="attendance.html">Attendance</a>
-            <a href="timetable.html">Timetable</a>
-            <a href="assignment.html">Assignments</a>
-            <a href="notice.html">Notice</a>
-            <a href="events.html">Events</a>
-            <a href="contact.html">Contact</a>
-            <a href="login.html" class="login">Login</a>
-            <a href="register.html" class="register">Register</a>
-        </nav>
-    </header>
-    <main>
-        <section class="container">
-            <h2>About StudentHub</h2>
-            <p>StudentHub helps students manage academics, events, attendance, assignments and communication.</p>
-        </section>
-    </main>
+    </section>
+
+    <section class="container about-services" aria-labelledby="services-title">
+        <div class="about-section-heading">
+            <p class="about-eyebrow">WHAT YOU CAN DO</p>
+            <h2 id="services-title">The essentials, all in one place</h2>
+            <p>Move between your academic information, campus updates, and student support from the main navigation.</p>
+        </div>
+        <div class="about-feature-grid">
+            <article class="feature-card about-card">
+                <span class="about-icon" aria-hidden="true">▤</span>
+                <h3>Keep academics organized</h3>
+                <p>Open your profile, check attendance, review your timetable, and find assignments from the Academics menu.</p>
+                <a href="attendance.html">Explore academic tools <span aria-hidden="true">→</span></a>
+            </article>
+            <article class="feature-card about-card">
+                <span class="about-icon" aria-hidden="true">◷</span>
+                <h3>Stay up to date</h3>
+                <p>Find college notices and browse events, with search and category filters available on the Events page.</p>
+                <a href="events.html">Explore campus updates <span aria-hidden="true">→</span></a>
+            </article>
+            <article class="feature-card about-card">
+                <span class="about-icon" aria-hidden="true">♡</span>
+                <h3>Get help when you need it</h3>
+                <p>Search common questions, send a message through Contact, or share suggestions through Feedback.</p>
+                <a href="faq.html">Visit student support <span aria-hidden="true">→</span></a>
+            </article>
+        </div>
+    </section>
+
+    <section class="container about-get-started" aria-labelledby="getting-started-title">
+        <div>
+            <p class="about-eyebrow">GETTING STARTED</p>
+            <h2 id="getting-started-title">Make StudentHub part of your routine</h2>
+            <p>Sign in to open your student dashboard, or create an account to get started. You can change the display theme at any time with the theme control in the navigation bar.</p>
+        </div>
+        <div class="about-actions">
+            <a class="btn btn-dark" href="login.html">Sign in</a>
+            <a class="btn btn-outline" href="register.html">Create an account</a>
+        </div>
+    </section>
+</main>
     <footer>
         <h3>StudentHub</h3>
         <p>Your Digital Campus Portal</p>
         <p>&copy; 2026 StudentHub. All Rights Reserved.</p>
     </footer>
+    <script src="js/theme.js"></script>
 </body>
 
 </html>

@@ -6,34 +6,55 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>StudentHub - Dashboard</title>
     <link rel="stylesheet" href="CSS/dashboard.css">
+    <link rel="stylesheet" href="CSS/theme.css">
 </head>
 
 <body>
 
-    <header>
-        <h1>StudentHub Dashboard</h1>
-        <p>Welcome to your academic portal</p>
-    </header>
-
-    <hr>
-
-    <nav>
-        <a href="index.html">Home</a> |
-        <a href="profile.html">Profile</a> |
-        <a href="attendance.html">Attendance</a> |
-        <a href="timetable.html">Timetable</a> |
-        <a href="assignment.html">Assignments</a> |
-        <a href="notice.html">Notice</a> |
-        <a href="contact.html">Contact</a> |
-        <a href="login.html">Logout</a>
-    </nav>
+    <header class="site-header">
+  <a class="logo" href="index.html" aria-label="StudentHub home">
+    <img src="images/logo-mark.png" alt="">
+    <span>StudentHub</span>
+  </a>
+  <nav id="navMenu" aria-label="Main navigation">
+      <a href="index.html">Home</a>
+      <a href="dashboard.html" class="active" aria-current="page">Dashboard</a>
+    <details class="nav-group">
+      <summary>Academics</summary>
+      <div class="nav-dropdown">
+      <a href="profile.html">Profile</a>
+      <a href="attendance.html">Attendance</a>
+      <a href="timetable.html">Timetable</a>
+      <a href="assignment.html">Assignments</a>
+      </div>
+    </details>
+    <details class="nav-group">
+      <summary>Campus</summary>
+      <div class="nav-dropdown">
+      <a href="Notice.html">Notices</a>
+      <a href="events.html">Events</a>
+      </div>
+    </details>
+    <details class="nav-group">
+      <summary>Support</summary>
+      <div class="nav-dropdown">
+      <a href="about.html">About</a>
+      <a href="faq.html">FAQ</a>
+      <a href="contact.html">Contact</a>
+      <a href="feedback.html">Feedback</a>
+      </div>
+    </details>
+    <a href="login.html" class="login">Sign in</a>
+    <a href="register.html" class="register">Create account</a>
+  </nav>
+</header>
 
     <hr>
 
     <main>
 
         <section>
-            <h2>Welcome, Student!</h2>
+            <h1>Welcome, Student!</h1>
             <p>
                 Welcome to StudentHub. This dashboard provides quick access to your
                 attendance, timetable, assignments, notices, and profile information.
@@ -143,19 +164,19 @@
 
                 <tr>
                     <td>HTML Practical</td>
-                    <td>10 August</td>
+                    <td>12 October</td>
                     <td>Pending</td>
                 </tr>
 
                 <tr>
                     <td>Java Program</td>
-                    <td>12 August</td>
+                    <td>19 October</td>
                     <td>Submitted</td>
                 </tr>
 
                 <tr>
                     <td>DBMS Report</td>
-                    <td>15 August</td>
+                    <td>24 October</td>
                     <td>Pending</td>
                 </tr>
 
@@ -170,9 +191,9 @@
             <h2>Recent Notices</h2>
 
             <ol>
-                <li>Semester examination begins from 20 August.</li>
-                <li>Submit all practical files before 15 August.</li>
-                <li>College will remain closed on Independence Day.</li>
+                <li>Cloud Computing Seminar is scheduled for 15 October.</li>
+                <li>Web Development Workshop is scheduled for 20 October.</li>
+                <li>Review the examination timetable when the confirmed schedule is published.</li>
             </ol>
 
         </section>
@@ -188,7 +209,7 @@
                 <li><a href="attendance.html">Check Attendance</a></li>
                 <li><a href="timetable.html">View Timetable</a></li>
                 <li><a href="assignment.html">Submit Assignments</a></li>
-                <li><a href="notice.html">Read Notices</a></li>
+                <li><a href="Notice.html">Read Notices</a></li>
             </ul>
 
         </section>
@@ -221,6 +242,7 @@
         <p>Email: studenthub@email.com</p>
 
     </footer>
+    <script src="js/theme.js"></script>
 
 </body>
 

@@ -1,0 +1,10 @@
+<?php
+// Copy to config.local.php and fill in local XAMPP/MySQL credentials.
+// config.local.php is ignored by Git.
+return [
+    'host' => '127.0.0.1',
+    'database' => 'studenthub',
+    'username' => 'root',
+    'password' => '',
+    'port' => 3306,
+];

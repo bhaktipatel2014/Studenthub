@@ -6,30 +6,52 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>StudentHub - Feedback</title>
     <link rel="stylesheet" href="CSS/style.css">
+    <link rel="stylesheet" href="CSS/theme.css">
+
 </head>
 
 <body>
-    <header>
-        <div class="logo"><img src="images/logo.png" alt="StudentHub Logo">
-            <h2>StudentHub</h2>
-        </div>
-        <nav aria-label="Main navigation">
-            <a href="index.html">Home</a>
-            <a href="dashboard.html">Dashboard</a>
-            <a href="profile.html">Profile</a>
-            <a href="attendance.html">Attendance</a>
-            <a href="timetable.html">Timetable</a>
-            <a href="assignment.html">Assignments</a>
-            <a href="notice.html">Notice</a>
-            <a href="events.html">Events</a>
-            <a href="contact.html">Contact</a>
-            <a href="login.html" class="login">Login</a>
-            <a href="register.html" class="register">Register</a>
-        </nav>
-    </header>
-    <main>
+    <header class="site-header">
+  <a class="logo" href="index.html" aria-label="StudentHub home">
+    <img src="images/logo-mark.png" alt="">
+    <span>StudentHub</span>
+  </a>
+  <nav id="navMenu" aria-label="Main navigation">
+      <a href="index.html">Home</a>
+      <a href="dashboard.html">Dashboard</a>
+    <details class="nav-group">
+      <summary>Academics</summary>
+      <div class="nav-dropdown">
+      <a href="profile.html">Profile</a>
+      <a href="attendance.html">Attendance</a>
+      <a href="timetable.html">Timetable</a>
+      <a href="assignment.html">Assignments</a>
+      </div>
+    </details>
+    <details class="nav-group">
+      <summary>Campus</summary>
+      <div class="nav-dropdown">
+      <a href="Notice.html">Notices</a>
+      <a href="events.html">Events</a>
+      </div>
+    </details>
+    <details class="nav-group is-active">
+      <summary>Support</summary>
+      <div class="nav-dropdown">
+      <a href="about.html">About</a>
+      <a href="faq.html">FAQ</a>
+      <a href="contact.html">Contact</a>
+      <a href="feedback.html" class="active" aria-current="page">Feedback</a>
+      </div>
+    </details>
+    <a href="login.html" class="login">Sign in</a>
+    <a href="register.html" class="register">Create account</a>
+  </nav>
+</header>
+
+<main>
         <section class="container">
-            <h2>Feedback</h2>
+            <h1>Feedback</h1>
             <form action="php/contact.php" method="post">
                 <label for="feedbackName">Name</label>
                 <input type="text" id="feedbackName" name="name" required>
@@ -46,6 +68,7 @@
         <p>Your Digital Campus Portal</p>
         <p>&copy; 2026 StudentHub. All Rights Reserved.</p>
     </footer>
+    <script src="js/theme.js"></script>
 </body>
 
 </html>

@@ -1,78 +1,92 @@
 [
-    {
-        "id": 1,
-        "question": "How do I register?",
-        "answer": "Open the Register page and fill in all required details."
-    },
-    {
-        "id": 2,
-        "question": "How do I login?",
-        "answer": "Use the email and password registered for your StudentHub account."
-    },
-    {
-        "id": 3,
-        "question": "Where can I see my attendance?",
-        "answer": "Open the Attendance page from the navigation menu."
-    },
-    {
-        "id": 4,
-        "question": "Where is the timetable?",
-        "answer": "Open the Timetable page to view the weekly schedule."
-    },
-    {
-        "id": 5,
-        "question": "Where can I see assignments?",
-        "answer": "Open the Assignments page from the dashboard navigation."
-    },
-    {
-        "id": 6,
-        "question": "How can I read notices?",
-        "answer": "Open the Notice page to see current college announcements."
-    },
-    {
-        "id": 7,
-        "question": "How can I view events?",
-        "answer": "Open the Events page to view event records loaded from JSON."
-    },
-    {
-        "id": 8,
-        "question": "Can I search events?",
-        "answer": "Yes. Use the search box on the Events page."
-    },
-    {
-        "id": 9,
-        "question": "Can I filter events?",
-        "answer": "Yes. Select a category from the filter dropdown."
-    },
-    {
-        "id": 10,
-        "question": "What happens if registration data is invalid?",
-        "answer": "The registration form shows an error and the PHP processor validates it again."
-    },
-    {
-        "id": 11,
-        "question": "Where is registration data stored?",
-        "answer": "For Practical 7, submitted registration records are stored in a JSON file on the server."
-    },
-    {
-        "id": 12,
-        "question": "What if an email already exists?",
-        "answer": "The PHP processor checks the stored records and reports a duplicate email."
-    },
-    {
-        "id": 13,
-        "question": "Is the website responsive?",
-        "answer": "Yes. The CSS includes responsive rules for smaller screens."
-    },
-    {
-        "id": 14,
-        "question": "Can I change the theme?",
-        "answer": "Yes. Use the theme button on the Home page."
-    },
-    {
-        "id": 15,
-        "question": "How can I contact StudentHub?",
-        "answer": "Use the Contact page and submit the contact form."
-    }
+  {
+    "id": 1,
+    "question": "What is StudentHub?",
+    "answer": "StudentHub is a campus portal that brings student information, academic tools, notices, and events together in one place."
+  },
+  {
+    "id": 2,
+    "question": "How do I create a StudentHub account?",
+    "answer": "Choose Create account in the navigation, complete the required fields, and submit the registration form. The page will show whether the submission succeeded or needs attention."
+  },
+  {
+    "id": 3,
+    "question": "How do I sign in?",
+    "answer": "Open Sign in and enter the email address and password associated with your account."
+  },
+  {
+    "id": 4,
+    "question": "I cannot sign in. What should I do?",
+    "answer": "Check that your email and password are entered correctly. If you still cannot access your account, use the Contact page to ask the StudentHub team for help. Do not send your password."
+  },
+  {
+    "id": 5,
+    "question": "What can I do in StudentHub?",
+    "answer": "You can view your profile, attendance, timetable, and assignments, and browse college notices and events."
+  },
+  {
+    "id": 6,
+    "question": "Where can I find my attendance?",
+    "answer": "Choose Attendance from the Academics menu in the navigation bar."
+  },
+  {
+    "id": 7,
+    "question": "Where can I find my timetable?",
+    "answer": "Choose Timetable from the Academics menu to view the weekly schedule."
+  },
+  {
+    "id": 8,
+    "question": "Where can I find assignments?",
+    "answer": "Choose Assignments from the Academics menu."
+  },
+  {
+    "id": 9,
+    "question": "Where can I view my profile?",
+    "answer": "Choose Profile from the Academics menu to review the student information shown on your account."
+  },
+  {
+    "id": 10,
+    "question": "Where can I find the latest college notices?",
+    "answer": "The home page shows a Latest Notices preview. Choose View all notices or open Notices from the Campus menu to see the full list."
+  },
+  {
+    "id": 11,
+    "question": "How do I browse college events?",
+    "answer": "Open Events from the Campus menu. You can search by event name or description and filter events by category."
+  },
+  {
+    "id": 12,
+    "question": "How do I search for a specific event?",
+    "answer": "On the Events page, enter a keyword in Search Events. You can combine the search with a category filter."
+  },
+  {
+    "id": 13,
+    "question": "Can I use StudentHub on my phone?",
+    "answer": "Yes. The pages adapt to smaller screens, and the Menu button opens the navigation on mobile."
+  },
+  {
+    "id": 14,
+    "question": "How do I switch between light and dark themes?",
+    "answer": "Use the theme button beside the navigation. Your preference is saved in this browser."
+  },
+  {
+    "id": 15,
+    "question": "How can I contact the StudentHub team?",
+    "answer": "Open Contact from the Support menu and use the contact form to send your question."
+  },
+  {
+    "id": 16,
+    "question": "How can I share feedback about the portal?",
+    "answer": "Open Feedback from the Support menu and submit the feedback form."
+  },
+  {
+    "id": 17,
+    "question": "What if my registration form shows an error?",
+    "answer": "Review the fields marked on the form and correct any missing or invalid information before submitting again."
+  },
+  {
+    "id": 18,
+    "question": "How do I update incorrect profile information?",
+    "answer": "Review your details on the Profile page. If information needs correction, contact your college or StudentHub administrator through the appropriate support channel."
+  }
 ]
-

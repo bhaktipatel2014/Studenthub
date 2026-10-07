@@ -10,52 +10,56 @@
     <title>StudentHub - Assignments</title>
 
     <link rel="stylesheet" href="CSS/assignment.css">
+    <link rel="stylesheet" href="CSS/theme.css">
 
 </head>
 
 <body>
 
 
-    <header>
-
-        <h1>StudentHub Dashboard</h1>
-
-        <p>Welcome to your academic portal</p>
-
-    </header>
-
-
-    <nav>
-
-        <a href="index.html">Home</a>
-
-        <a href="dashboard.html">Dashboard</a>
-
-        <a href="profile.html">Profile</a>
-
-        <a href="attendance.html">Attendance</a>
-
-        <a href="timetable.html">Timetable</a>
-
-        <a href="assignment.html" class="active">
-            Assignments
-        </a>
-
-        <a href="notice.html">Notice</a>
-
-        <a href="contact.html">Contact</a>
-
-        <a href="login.html" class="logout">
-            Logout
-        </a>
-
-    </nav>
+    <header class="site-header">
+  <a class="logo" href="index.html" aria-label="StudentHub home">
+    <img src="images/logo-mark.png" alt="">
+    <span>StudentHub</span>
+  </a>
+  <nav id="navMenu" aria-label="Main navigation">
+      <a href="index.html">Home</a>
+      <a href="dashboard.html">Dashboard</a>
+    <details class="nav-group is-active">
+      <summary>Academics</summary>
+      <div class="nav-dropdown">
+      <a href="profile.html">Profile</a>
+      <a href="attendance.html">Attendance</a>
+      <a href="timetable.html">Timetable</a>
+      <a href="assignment.html" class="active" aria-current="page">Assignments</a>
+      </div>
+    </details>
+    <details class="nav-group">
+      <summary>Campus</summary>
+      <div class="nav-dropdown">
+      <a href="Notice.html">Notices</a>
+      <a href="events.html">Events</a>
+      </div>
+    </details>
+    <details class="nav-group">
+      <summary>Support</summary>
+      <div class="nav-dropdown">
+      <a href="about.html">About</a>
+      <a href="faq.html">FAQ</a>
+      <a href="contact.html">Contact</a>
+      <a href="feedback.html">Feedback</a>
+      </div>
+    </details>
+    <a href="login.html" class="login">Sign in</a>
+    <a href="register.html" class="register">Create account</a>
+  </nav>
+</header>
 
     <main>
 
         <section>
 
-            <h2>Assignments</h2>
+            <h1>Assignments</h1>
 
             <p class="description">
                 View your practical assignments.
@@ -93,7 +97,7 @@
         </p>
 
     </footer>
-
+<script src="js/theme.js"></script>
 
 </body>
 

@@ -1,87 +1,45 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>StudentHub - Register</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Create a StudentHub student account.">
+  <title>Create your account | StudentHub</title>
+  <link rel="stylesheet" href="CSS/theme.css">
+  <link rel="stylesheet" href="CSS/register.css">
 </head>
-
-<body>
-    <header>
-        <h1>Student Registration</h1>
-    </header>
-
-    <nav aria-label="Main navigation">
-        <a href="index.html">Home</a>
-        <a href="login.html">Login</a>
-    </nav>
-
-    <main>
-        <form action="php/register.php" method="post" id="registrationForm" novalidate>
-            <label for="fullName">Full Name:</label><br>
-            <input type="text" id="fullName" name="full_name" required pattern="[A-Za-z ]{2,50}"
-                aria-describedby="nameError">
-            <p id="nameError" class="error" aria-live="polite"></p>
-
-            <label for="email">Email:</label><br>
-            <input type="email" id="email" name="email" required aria-describedby="emailError">
-            <p id="emailError" class="error" aria-live="polite"></p>
-
-            <label for="mobile">Mobile:</label><br>
-            <input type="tel" id="mobile" name="mobile" required pattern="[0-9]{10}" aria-describedby="mobileError">
-            <p id="mobileError" class="error" aria-live="polite"></p>
-
-            <label for="password">Password:</label><br>
-            <input type="password" id="password" name="password" required minlength="8"
-                aria-describedby="passwordError passwordStrength">
-            <p id="passwordStrength" aria-live="polite"></p>
-            <p id="passwordError" class="error" aria-live="polite"></p>
-
-            <label for="confirmPassword">Confirm Password:</label><br>
-            <input type="password" id="confirmPassword" name="confirm_password" required
-                aria-describedby="confirmError">
-            <p id="confirmError" class="error" aria-live="polite"></p>
-
-            <label for="course">Course:</label><br>
-            <select id="course" name="course" required>
-                <option value="">Select Course</option>
-                <option value="B.Tech IT">B.Tech IT</option>
-                <option value="B.Tech CSE">B.Tech CSE</option>
-            </select><br><br>
-
-            <label for="year">Year:</label><br>
-            <select id="year" name="year" required>
-                <option value="">Select Year</option>
-                <option value="1st Year">1st Year</option>
-                <option value="2nd Year">2nd Year</option>
-                <option value="3rd Year">3rd Year</option>
-                <option value="4th Year">4th Year</option>
-            </select><br><br>
-
-            <fieldset>
-                <legend>Gender</legend>
-                <label><input type="radio" name="gender" value="Female" required> Female</label>
-                <label><input type="radio" name="gender" value="Male"> Male</label>
-                <label><input type="radio" name="gender" value="Other"> Other</label>
-            </fieldset><br>
-
-            <label>
-                <input type="checkbox" id="terms" name="terms" value="yes" required>
-                I accept the terms and conditions.
-            </label>
-            <p id="termsError" class="error" aria-live="polite"></p>
-
-            <button type="submit">Register</button>
-        </form>
-    </main>
-
-    <footer>
-        <p>StudentHub Portal</p>
-        <p>&copy; 2026 StudentHub. All Rights Reserved.</p>
-    </footer>
-
-    <script src="JS/register.js"></script>
+<body class="register-page">
+  <header class="site-header">
+    <a class="logo" href="index.html" aria-label="StudentHub home"><img src="images/logo-mark.png" alt=""><span>StudentHub</span></a>
+    <nav aria-label="Main navigation"><a href="index.html">Home</a><a href="faq.html">FAQ</a><a href="login.html" class="login-link">Sign in</a></nav>
+  </header>
+  <main class="register-main">
+    <section class="register-card" aria-labelledby="register-title">
+      <div class="register-heading">
+        <span class="register-eyebrow">JOIN STUDENTHUB</span>
+        <h1 id="register-title">Create your student account</h1>
+        <p>Set up your profile to keep campus life and academic updates in one place.</p>
+      </div>
+      <div id="formNotice" class="form-notice" role="status" aria-live="polite"></div>
+      <form action="php/register.php" method="post" id="registrationForm" novalidate>
+        <div class="registration-grid">
+          <div class="field-group"><label for="fullName">Full name</label><input type="text" id="fullName" name="full_name" placeholder="e.g. Aarya Patel" autocomplete="name" required minlength="2" maxlength="50" aria-describedby="nameError"><p id="nameError" class="error" aria-live="polite"></p></div>
+          <div class="field-group"><label for="email">University or personal email</label><input type="email" id="email" name="email" placeholder="you@charusat.ac.in" autocomplete="email" required maxlength="190" aria-describedby="emailError"><p id="emailError" class="error" aria-live="polite"></p></div>
+          <div class="field-group"><label for="mobile">Mobile number</label><input type="tel" id="mobile" name="mobile" placeholder="10-digit mobile number" inputmode="numeric" autocomplete="tel" pattern="[0-9]{10}" minlength="10" maxlength="10" required aria-describedby="mobileError"><p id="mobileError" class="error" aria-live="polite"></p></div>
+          <div class="field-group"><label for="course">Course</label><select id="course" name="course" required aria-describedby="courseError"><option value="">Select your course</option><option>B.Tech IT</option><option>B.Tech CSE</option><option>B.Tech CE</option><option>BCA</option><option>MCA</option></select><p id="courseError" class="error" aria-live="polite"></p></div>
+          <div class="field-group"><label for="year">Current year</label><select id="year" name="year" required aria-describedby="yearError"><option value="">Select your year</option><option>1st Year</option><option>2nd Year</option><option>3rd Year</option><option>4th Year</option></select><p id="yearError" class="error" aria-live="polite"></p></div>
+          <fieldset class="gender-group" aria-describedby="genderError"><legend>Gender</legend><div class="choice-list"><label><input type="radio" name="gender" value="Female" required> Female</label><label><input type="radio" name="gender" value="Male"> Male</label><label><input type="radio" name="gender" value="Other"> Other</label><label><input type="radio" name="gender" value="Prefer not to say"> Prefer not to say</label></div><p id="genderError" class="error" aria-live="polite"></p></fieldset>
+          <div class="field-group"><label for="password">Password</label><input type="password" id="password" name="password" placeholder="Create a strong password" autocomplete="new-password" minlength="8" required aria-describedby="passwordStrength passwordError"><p id="passwordStrength" class="field-help" aria-live="polite">At least 8 characters, including uppercase, lowercase, a number and a symbol.</p><p id="passwordError" class="error" aria-live="polite"></p></div>
+          <div class="field-group"><label for="confirmPassword">Confirm password</label><input type="password" id="confirmPassword" name="confirm_password" placeholder="Enter your password again" autocomplete="new-password" required aria-describedby="confirmError"><p id="confirmError" class="error" aria-live="polite"></p></div>
+          <div class="terms-group"><label class="terms-label" for="terms"><input type="checkbox" id="terms" name="terms" value="yes" required><span>I confirm these details are correct and accept the portal terms.</span></label><p id="termsError" class="error" aria-live="polite"></p></div>
+        </div>
+        <button type="submit" class="create-account-button">Create student account <span aria-hidden="true">→</span></button>
+      </form>
+      <p class="signin-prompt">Already have an account? <a href="login.html">Sign in</a></p>
+    </section>
+  </main>
+  <footer class="register-footer"><span>© 2026 StudentHub · CHARUSAT</span><a href="contact.html">Need help? Contact us</a></footer>
+  <script src="js/theme.js"></script>
+  <script src="js/register.js"></script>
 </body>
-
 </html>

@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Answers to common questions about StudentHub accounts, campus events and student services.">
+  <title>Frequently Asked Questions | StudentHub</title>
+  <link rel="stylesheet" href="CSS/style.css">
+  <link rel="stylesheet" href="CSS/theme.css">
+</head>
+<body>
+  <header class="site-header">
+  <a class="logo" href="index.html" aria-label="StudentHub home">
+    <img src="images/logo-mark.png" alt="">
+    <span>StudentHub</span>
+  </a>
+  <nav id="navMenu" aria-label="Main navigation">
+      <a href="index.html">Home</a>
+      <a href="dashboard.html">Dashboard</a>
+    <details class="nav-group">
+      <summary>Academics</summary>
+      <div class="nav-dropdown">
+      <a href="profile.html">Profile</a>
+      <a href="attendance.html">Attendance</a>
+      <a href="timetable.html">Timetable</a>
+      <a href="assignment.html">Assignments</a>
+      </div>
+    </details>
+    <details class="nav-group">
+      <summary>Campus</summary>
+      <div class="nav-dropdown">
+      <a href="Notice.html">Notices</a>
+      <a href="events.html">Events</a>
+      </div>
+    </details>
+    <details class="nav-group is-active">
+      <summary>Support</summary>
+      <div class="nav-dropdown">
+      <a href="about.html">About</a>
+      <a href="faq.html" class="active" aria-current="page">FAQ</a>
+      <a href="contact.html">Contact</a>
+      <a href="feedback.html">Feedback</a>
+      </div>
+    </details>
+    <a href="login.html" class="login">Sign in</a>
+    <a href="register.html" class="register">Create account</a>
+  </nav>
+</header>
+
+<main>
+    <section class="container">
+      <div class="section-title"><div><p class="hero-tag">STUDENT SUPPORT</p><h1>Frequently asked questions</h1></div><a href="contact.html">Still need help? Contact us →</a></div>
+      <p>Quick answers for getting started and finding your way around the StudentHub portal.</p>
+      <label for="faqSearch">Search questions</label>
+      <input type="search" id="faqSearch" placeholder="Try “events” or “password”" autocomplete="off">
+      <p id="faqStatus" role="status" aria-live="polite">Loading answers…</p>
+      <div class="faq-list" id="faqList"></div>
+    </section>
+  </main>
+  <footer><h2>StudentHub</h2><p>Your campus information, in one place.</p><div class="footer-links"><a href="about.html">About</a><a href="events.html">Events</a><a href="contact.html">Contact</a></div><p>© 2026 StudentHub · CHARUSAT</p></footer>
+  <script src="js/theme.js"></script><script src="js/faq.js"></script>
+</body>
+</html>

@@ -2,12 +2,16 @@
 <html lang="en">
 
 <head>
+    <meta charset="utf-8">
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>StudentHub - Contact</title>
 
     <link rel="stylesheet" href="CSS/contact.css">
+    <link rel="stylesheet" href="CSS/theme.css">
+    
+    
 
 </head>
 
@@ -17,41 +21,43 @@
 
 
 
-    <header>
-
-        <h1>StudentHub Dashboard</h1>
-
-        <p>Welcome to your academic portal</p>
-
-    </header>
-
-
-
-    <nav>
-
-        <a href="index.html">Home</a>
-
-        <a href="dashboard.html">Dashboard</a>
-
-        <a href="profile.html">Profile</a>
-
-        <a href="attendance.html">Attendance</a>
-
-        <a href="timetable.html">Timetable</a>
-
-        <a href="assignment.html">Assignments</a>
-
-        <a href="notice.html">Notice</a>
-
-        <a href="contact.html" class="active">
-            Contact
-        </a>
-
-        <a href="login.html" class="logout">
-            Logout
-        </a>
-
-    </nav>
+    <header class="site-header">
+  <a class="logo" href="index.html" aria-label="StudentHub home">
+    <img src="images/logo-mark.png" alt="">
+    <span>StudentHub</span>
+  </a>
+  <nav id="navMenu" aria-label="Main navigation">
+      <a href="index.html">Home</a>
+      <a href="dashboard.html">Dashboard</a>
+    <details class="nav-group">
+      <summary>Academics</summary>
+      <div class="nav-dropdown">
+      <a href="profile.html">Profile</a>
+      <a href="attendance.html">Attendance</a>
+      <a href="timetable.html">Timetable</a>
+      <a href="assignment.html">Assignments</a>
+      </div>
+    </details>
+    <details class="nav-group">
+      <summary>Campus</summary>
+      <div class="nav-dropdown">
+      <a href="Notice.html">Notices</a>
+      <a href="events.html">Events</a>
+      </div>
+    </details>
+    <details class="nav-group is-active">
+      <summary>Support</summary>
+      <div class="nav-dropdown">
+      <a href="about.html">About</a>
+      <a href="faq.html">FAQ</a>
+      <a href="contact.html" class="active" aria-current="page">Contact</a>
+      <a href="feedback.html">Feedback</a>
+      </div>
+    </details>
+    <a href="login.html" class="login">Sign in</a>
+    <a href="register.html" class="register">Create account</a>
+  </nav>
+</header>
 
 
     <main>
@@ -59,7 +65,7 @@
 
         <section>
 
-            <h2>Contact StudentHub</h2>
+            <h1>Contact StudentHub</h1>
 
             <p class="description">
                 Have a question or need assistance?
@@ -95,7 +101,7 @@
                             <h4>Email</h4>
 
                             <p>
-                                studenthub@email.com
+                                Use the form on this page to send your question to the StudentHub team.
                             </p>
 
                         </div>
@@ -114,7 +120,7 @@
                             <h4>Phone</h4>
 
                             <p>
-                                +91 98765 43210
+                                For urgent academic support, contact your department office.
                             </p>
 
                         </div>
@@ -133,8 +139,7 @@
                             <h4>College Address</h4>
 
                             <p>
-                                StudentHub College Campus,
-                                Gujarat, India
+                                CHARUSAT campus, Gujarat, India
                             </p>
 
                         </div>
@@ -212,7 +217,7 @@
         </p>
 
     </footer>
-
+<script src="js/theme.js"></script>
 
 </body>
 
