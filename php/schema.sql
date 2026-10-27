@@ -13,8 +13,10 @@ CREATE TABLE IF NOT EXISTS users (
   password_hash VARCHAR(255) NOT NULL,
   role ENUM('student','admin') NOT NULL DEFAULT 'student',
   status ENUM('active','inactive') NOT NULL DEFAULT 'active',
+  last_login TIMESTAMP NULL DEFAULT NULL,
   created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  UNIQUE KEY uq_users_email (email)
+  UNIQUE KEY uq_users_email (email),
+  KEY idx_users_role_status (role, status)
 ) ENGINE=InnoDB;
 
 CREATE TABLE IF NOT EXISTS students (
@@ -31,6 +33,8 @@ CREATE TABLE IF NOT EXISTS students (
   UNIQUE KEY uq_students_code (student_code),
   UNIQUE KEY uq_students_email (email),
   UNIQUE KEY uq_students_user (user_id),
+  KEY idx_students_course_year (course, year_level),
+  KEY idx_students_status (status),
   CONSTRAINT fk_students_user FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE SET NULL
 ) ENGINE=InnoDB;
 
@@ -43,7 +47,10 @@ CREATE TABLE IF NOT EXISTS events (
   poster_path VARCHAR(255) NULL,
   status ENUM('open','closed') NOT NULL DEFAULT 'open',
   created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  UNIQUE KEY uq_events_title_date (title, event_date)
+  UNIQUE KEY uq_events_title_date (title, event_date),
+  KEY idx_events_date (event_date),
+  KEY idx_events_category_date (category, event_date),
+  KEY idx_events_status (status)
 ) ENGINE=InnoDB;
 
 CREATE TABLE IF NOT EXISTS registrations (
@@ -52,8 +59,22 @@ CREATE TABLE IF NOT EXISTS registrations (
   event_id BIGINT UNSIGNED NOT NULL,
   registered_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
   UNIQUE KEY uq_event_student (student_id, event_id),
+  KEY idx_registrations_event_date (event_id, registered_at),
   CONSTRAINT fk_registrations_student FOREIGN KEY (student_id) REFERENCES students(id) ON DELETE CASCADE,
   CONSTRAINT fk_registrations_event FOREIGN KEY (event_id) REFERENCES events(id) ON DELETE CASCADE
+) ENGINE=InnoDB;
+
+CREATE TABLE IF NOT EXISTS audit_logs (
+  id BIGINT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  user_id BIGINT UNSIGNED NOT NULL,
+  action ENUM('create','update','delete') NOT NULL,
+  entity_type ENUM('student','event') NOT NULL,
+  entity_id BIGINT UNSIGNED NOT NULL,
+  details VARCHAR(255) NOT NULL,
+  created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  KEY idx_audit_created (created_at),
+  KEY idx_audit_entity (entity_type, entity_id),
+  CONSTRAINT fk_audit_user FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE RESTRICT
 ) ENGINE=InnoDB;
 
 -- Sample SQL seed data (20 students, 15 events and 5 event registrations).
