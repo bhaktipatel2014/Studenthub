@@ -3,12 +3,19 @@ document.addEventListener("DOMContentLoaded", function () {
   if (!form) return;
   const password = document.getElementById("password");
   const confirmation = document.getElementById("confirmPassword");
-  const errors = ["nameError", "emailError", "mobileError", "courseError", "yearError", "genderError", "passwordError", "confirmError", "termsError"];
   const query = new URLSearchParams(window.location.search);
   const notice = document.getElementById("formNotice");
   if (query.has("status")) {
-    notice.textContent = query.get("status") === "ok" ? "Your account details were saved. You can now sign in." : (query.get("msg") || "Please review the form and try again.");
+    notice.textContent = query.get("status") === "ok" ? "Registration successful! Your details have been saved successfully." : (query.get("msg") || "Please review the form and try again.");
     notice.className = query.get("status") === "ok" ? "success" : "error";
+  }
+  if (window.location.protocol === "file:") {
+    notice.textContent = "Start Apache in XAMPP and open this page at http://localhost/StudentHub/register.html to submit registration safely.";
+    notice.className = "info";
+    form.addEventListener("submit", function (event) {
+      event.preventDefault();
+      notice.scrollIntoView({ behavior: "smooth", block: "center" });
+    });
   }
   function setError(id, message) { document.getElementById(id).textContent = message; }
   function passwordGrade(value) {
@@ -26,26 +33,38 @@ document.addEventListener("DOMContentLoaded", function () {
   confirmation.addEventListener("input", function () {
     setError("confirmError", confirmation.value && confirmation.value !== password.value ? "Passwords do not match." : "");
   });
+
   form.addEventListener("submit", function (event) {
-    errors.forEach((id) => setError(id, ""));
-    let valid = true;
-    const name = document.getElementById("fullName");
-    const email = document.getElementById("email");
-    const mobile = document.getElementById("mobile");
+    const checks = [
+      ["fullName", "nameError", value => /^[\p{L}\p{M}][\p{L}\p{M} .'-]{1,49}$/u.test(value), "Enter a valid name using 2–50 letters."],
+      ["email", "emailError", value => value.length <= 190 && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value), "Enter a valid email address."],
+      ["mobile", "mobileError", value => /^\d{10}$/.test(value), "Mobile number must contain 10 digits."],
+      ["course", "courseError", value => ["B.Tech IT", "B.Tech CSE", "B.Tech CE", "BCA", "MCA"].includes(value), "Select a valid course."],
+      ["year", "yearError", value => ["1st Year", "2nd Year", "3rd Year", "4th Year"].includes(value), "Select your current year."],
+      ["password", "passwordError", value => value.length <= 128 && /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[^A-Za-z0-9]).{8,128}$/.test(value), "Use 8–128 characters with uppercase, lowercase, a number and a symbol."],
+      ["confirmPassword", "confirmError", value => value !== "" && value === password.value, "Passwords do not match."],
+    ];
+    let firstInvalid = null;
+    for (const [fieldId, errorId, valid, message] of checks) {
+      const field = document.getElementById(fieldId);
+      const isValid = valid(field.value.trim());
+      setError(errorId, isValid ? "" : message);
+      field.setAttribute("aria-invalid", String(!isValid));
+      if (!isValid && !firstInvalid) firstInvalid = field;
+    }
+
+    const selectedGender = form.querySelector('input[name="gender"]:checked');
+    const genderValid = Boolean(selectedGender);
+    setError("genderError", genderValid ? "" : "Choose a gender option.");
     const terms = document.getElementById("terms");
-    if (!/^[A-Za-z][A-Za-z .'-]{1,49}$/.test(name.value.trim())) { setError("nameError", "Enter a name using 2–50 letters, spaces or apostrophes."); valid = false; }
-    if (!email.validity.valid) { setError("emailError", "Enter a valid email address."); valid = false; }
-    if (!/^\d{10}$/.test(mobile.value.trim())) { setError("mobileError", "Enter a 10-digit mobile number."); valid = false; }
-    if (!/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[^A-Za-z0-9]).{8,128}$/.test(password.value)) { setError("passwordError", "Use 8–128 characters with upper- and lowercase letters, a number and a symbol."); valid = false; }
-    if (!confirmation.value || confirmation.value !== password.value) { setError("confirmError", "Enter the same password again."); valid = false; }
-    if (!form.elements.course.value) { setError("courseError", "Choose your course."); valid = false; }
-    if (!form.elements.year.value) { setError("yearError", "Choose your current year."); valid = false; }
-    if (!form.querySelector('input[name="gender"]:checked')) { setError("genderError", "Choose an option or select “Prefer not to say”."); valid = false; }
-    if (!terms.checked) { setError("termsError", "Please confirm the terms to continue."); valid = false; }
-    if (!valid) {
+    setError("termsError", terms.checked ? "" : "Accept the terms to continue.");
+    if (!genderValid && !firstInvalid) firstInvalid = form.querySelector('input[name="gender"]');
+    if (!terms.checked && !firstInvalid) firstInvalid = terms;
+
+    if (firstInvalid) {
       event.preventDefault();
-      const firstInvalid = form.querySelector(".error:not(:empty)") || form.querySelector(":invalid");
-      if (firstInvalid) firstInvalid.scrollIntoView({ behavior: "smooth", block: "center" });
+      firstInvalid.focus();
+      firstInvalid.scrollIntoView({ behavior: "smooth", block: "center" });
     }
   });
 });

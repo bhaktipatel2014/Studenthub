@@ -1,6 +1,8 @@
 document.addEventListener("DOMContentLoaded", async function () {
   const list = document.getElementById("faqList");
   const search = document.getElementById("faqSearch");
+  const clearSearch = document.getElementById("clearFaqSearch");
+  const topicFilter = document.getElementById("faqTopic");
   const status = document.getElementById("faqStatus");
   // Browsers block fetch() for file:// pages, so keep the common answers
   // available when students open this static project directly.
@@ -25,35 +27,66 @@ document.addEventListener("DOMContentLoaded", async function () {
     { question: "How do I update incorrect profile information?", answer: "Review your details on the Profile page. If information needs correction, contact your college or StudentHub administrator through the appropriate support channel." }
   ];
   let faqs = [];
+  function categoryFor(item) {
+    const text = (item.question + " " + item.answer).toLowerCase();
+    if (/event|notice|campus/.test(text)) return "Campus";
+    if (/attendance|timetable|assignment|profile|academic/.test(text)) return "Academics";
+    if (/account|sign in|password|registration/.test(text)) return "Account";
+    return "StudentHub";
+  }
+  function populateTopics() {
+    const categories = [...new Set(faqs.map(categoryFor))].sort((a, b) => a.localeCompare(b));
+    categories.forEach((category) => topicFilter.add(new Option(category, category)));
+  }
   function render() {
     const query = search.value.trim().toLocaleLowerCase();
-    const matches = faqs.filter((item) => (item.question + " " + item.answer).toLocaleLowerCase().includes(query));
+    const selectedTopic = topicFilter.value;
+    const matches = faqs.filter((item) => (item.question + " " + item.answer).toLocaleLowerCase().includes(query)
+      && (selectedTopic === "all" || categoryFor(item) === selectedTopic));
+    clearSearch.hidden = !search.value;
     list.replaceChildren();
     matches.forEach((item) => {
+      const card = document.createElement("article");
+      card.className = "card faq-card";
       const details = document.createElement("details");
       const summary = document.createElement("summary");
       const answer = document.createElement("p");
+      const category = document.createElement("span");
+      category.className = "event-category";
+      category.textContent = categoryFor(item);
       summary.textContent = item.question;
       answer.textContent = item.answer;
       details.append(summary, answer);
-      list.append(details);
+      card.append(category, details);
+      list.append(card);
     });
     if (!matches.length) {
       const empty = document.createElement("p");
+      empty.className = "faq-empty";
       empty.textContent = "No answers match that search. Try a different phrase or contact us.";
       list.append(empty);
     }
     status.textContent = matches.length + " answer" + (matches.length === 1 ? "" : "s");
   }
   try {
-    const response = await fetch("Data/faqs.json");
+    const response = await fetch("Data/faqs.json", { headers: { Accept: "application/json" } });
     if (!response.ok) throw new Error("FAQ data is unavailable.");
-    faqs = await response.json();
+    const data = await response.json();
+    if (!Array.isArray(data)) throw new Error("FAQ data must be a JSON array.");
+    faqs = data.filter((item) => item && typeof item.question === "string" && item.question.trim() && typeof item.answer === "string" && item.answer.trim());
+    populateTopics();
     render();
   } catch (error) {
     faqs = localFaqs;
+    populateTopics();
     render();
     status.textContent = "Showing the included FAQ answers. Run the project through a web server to load the latest FAQ data.";
   }
   search.addEventListener("input", render);
+  topicFilter.addEventListener("change", render);
+  clearSearch.addEventListener("click", () => {
+    search.value = "";
+    render();
+    search.focus();
+  });
 });

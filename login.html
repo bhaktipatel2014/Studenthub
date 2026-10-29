@@ -38,8 +38,9 @@
         <p class="panel-kicker">STUDENT PORTAL</p>
         <h2 id="login-title">Welcome back</h2>
         <p class="login-description">Sign in with your student account to continue.</p>
+        <p id="loginNotice" role="status" aria-live="polite" hidden></p>
 
-        <form class="login-form" method="post">
+        <form class="login-form" method="post" action="php/login.php">
           <label for="loginEmail">Email address</label>
           <input type="email" id="loginEmail" name="email" placeholder="you@charusat.ac.in" autocomplete="username" required>
 
@@ -60,5 +61,6 @@
     <a href="contact.html">Need help? Contact us</a>
   </footer>
   <script src="js/theme.js"></script>
+  <script src="js/login.js"></script>
 </body>
 </html>

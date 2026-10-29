@@ -11,6 +11,7 @@
 .contact-notice[hidden] { display: none; }
 .contact-notice.is-success { color: var(--success); background: var(--surface-muted); border-color: var(--success); }
 .contact-notice.is-error { color: var(--danger); background: var(--surface-muted); border-color: var(--danger); }
+.contact-notice.is-info { color: var(--primary); background: var(--surface-muted); border-color: var(--primary); }
 
 
 * {

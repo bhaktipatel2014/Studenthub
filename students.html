@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Browse the sample StudentHub student directory by name, course and department.">
+  <title>Students | StudentHub</title>
+  <link rel="stylesheet" href="CSS/style.css">
+  <link rel="stylesheet" href="CSS/theme.css">
+  <link rel="stylesheet" href="CSS/events.css">
+  <link rel="stylesheet" href="CSS/students.css">
+</head>
+<body>
+  <header class="site-header">
+    <a class="logo" href="index.html" aria-label="StudentHub home"><img src="images/logo-mark.png" alt=""><span>StudentHub</span></a>
+    <nav id="navMenu" aria-label="Main navigation">
+      <a href="index.html">Home</a><a href="dashboard.html">Dashboard</a>
+      <details class="nav-group is-active"><summary>Academics</summary><div class="nav-dropdown">
+        <a href="profile.html">Profile</a><a href="students.html" class="active" aria-current="page">Students</a><a href="attendance.html">Attendance</a><a href="timetable.html">Timetable</a><a href="assignment.html">Assignments</a>
+      </div></details>
+      <details class="nav-group"><summary>Campus</summary><div class="nav-dropdown"><a href="Notice.html">Notices</a><a href="events.html">Events</a></div></details>
+      <details class="nav-group"><summary>Support</summary><div class="nav-dropdown"><a href="about.html">About</a><a href="faq.html">FAQ</a><a href="contact.html">Contact</a><a href="feedback.html">Feedback</a></div></details>
+      <a href="login.html" class="login">Sign in</a><a href="register.html" class="register">Create account</a>
+    </nav>
+  </header>
+  <main>
+    <section class="container events-page students-page">
+      <div class="section-title"><div><p class="hero-tag">STUDENT DIRECTORY</p><h1>Meet our students</h1></div><a href="profile.html">View profile →</a></div>
+      <p class="events-intro">Explore the sample student directory by name, course or department.</p>
+      <div class="event-controls">
+        <div class="event-search-control"><label for="studentSearch">Search students</label><input type="search" id="studentSearch" placeholder="Search name, email or department" autocomplete="off"></div>
+        <div><label for="courseFilter">Course</label><select id="courseFilter"><option value="all">All Courses</option></select></div>
+        <div><label for="studentSort">Sort by</label><select id="studentSort"><option value="name-asc">Name: A to Z</option><option value="name-desc">Name: Z to A</option><option value="year-asc">Year: lowest first</option><option value="year-desc">Year: highest first</option></select></div>
+      </div>
+      <p id="studentStatus" class="event-status" role="status" aria-live="polite">Loading students…</p>
+      <div class="cards" id="studentList"></div>
+      <div class="pager event-pager" aria-label="Student directory pages"><button type="button" id="previousStudents" class="button-secondary">← Previous</button><span id="studentPage" aria-live="polite">Page 1</span><button type="button" id="nextStudents" class="button-secondary">Next →</button></div>
+    </section>
+  </main>
+  <footer><h3>StudentHub</h3><p>Your Digital Campus Portal</p><p>© 2026 StudentHub. All Rights Reserved.</p></footer>
+  <script src="js/students.js"></script><script src="js/theme.js"></script>
+</body>
+</html>

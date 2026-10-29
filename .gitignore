@@ -1,3 +1,5 @@
 /php/config.local.php
 /php/storage/*.json
 /php/storage/*.csv
+/php/uploads/events/*
+!/php/uploads/events/.htaccess

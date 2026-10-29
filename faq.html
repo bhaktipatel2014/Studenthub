@@ -7,6 +7,8 @@
   <title>Frequently Asked Questions | StudentHub</title>
   <link rel="stylesheet" href="CSS/style.css">
   <link rel="stylesheet" href="CSS/theme.css">
+  <link rel="stylesheet" href="CSS/events.css">
+  <link rel="stylesheet" href="CSS/faq.css">
 </head>
 <body>
   <header class="site-header">
@@ -21,6 +23,7 @@
       <summary>Academics</summary>
       <div class="nav-dropdown">
       <a href="profile.html">Profile</a>
+      <a href="students.html">Students</a>
       <a href="attendance.html">Attendance</a>
       <a href="timetable.html">Timetable</a>
       <a href="assignment.html">Assignments</a>
@@ -48,13 +51,26 @@
 </header>
 
 <main>
-    <section class="container">
+    <section class="container events-page faq-page">
       <div class="section-title"><div><p class="hero-tag">STUDENT SUPPORT</p><h1>Frequently asked questions</h1></div><a href="contact.html">Still need help? Contact us →</a></div>
-      <p>Quick answers for getting started and finding your way around the StudentHub portal.</p>
-      <label for="faqSearch">Search questions</label>
-      <input type="search" id="faqSearch" placeholder="Try “events” or “password”" autocomplete="off">
-      <p id="faqStatus" role="status" aria-live="polite">Loading answers…</p>
-      <div class="faq-list" id="faqList"></div>
+      <p class="events-intro">Quick answers for getting started and finding your way around the StudentHub portal.</p>
+      <div class="event-controls faq-controls">
+        <div class="event-search-control">
+          <label for="faqSearch">Search questions</label>
+          <div class="faq-search-box">
+            <svg class="faq-search-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.8" cy="10.8" r="6.8"></circle><path d="m16 16 4.2 4.2"></path></svg>
+            <input type="search" id="faqSearch" placeholder="Search by question or keyword…" autocomplete="off" aria-describedby="faqSearchHint">
+            <button type="button" id="clearFaqSearch" class="faq-clear-search" aria-label="Clear search" title="Clear search" hidden>×</button>
+          </div>
+          <p id="faqSearchHint" class="faq-search-hint">Search topics like events, attendance, accounts, or passwords.</p>
+        </div>
+        <div class="faq-topic-control">
+          <label for="faqTopic">Filter by topic</label>
+          <select id="faqTopic"><option value="all">All topics</option></select>
+        </div>
+      </div>
+      <p id="faqStatus" class="event-status faq-status" role="status" aria-live="polite">Loading answers…</p>
+      <div class="cards faq-list" id="faqList"></div>
     </section>
   </main>
   <footer><h2>StudentHub</h2><p>Your campus information, in one place.</p><div class="footer-links"><a href="about.html">About</a><a href="events.html">Events</a><a href="contact.html">Contact</a></div><p>© 2026 StudentHub · CHARUSAT</p></footer>
